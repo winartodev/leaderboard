@@ -1,0 +1,35 @@
+@startuml Leaderboard Database Designed
+
+entity leaderboards {
+  * id INT NOT NULL <<PK>>
+  * slug VARCHAR(100) <<UQ>>
+  --
+  * title VARCHAR(100) NOT NULL
+  * is_active BOOLEAN NOT NULL
+  * created_at TIMESTAMP NOT NULL
+  updated_at TIMETAMP NULL
+}
+
+entity point_logs {
+  * id INT NOT NULL <<PK>>
+  * leaderboard_id INT NOT NULL <<FK>>
+  --
+  * uid INT NOT NULL
+  * point INT NOT NULL
+  * created_at TIMESTAMP NOT NULL
+  updated_at TIMESTAMP NULL
+}
+
+entity users {
+  * id INT NOT NULL <<PK>>
+  --
+  * name VARCHAR(100) NOT NULL
+  * profile_picture TEXT NOT NULL
+  * created_at TIMESTAMP NOT NULL
+  updated_at TIMESTAMP NULL
+}
+
+leaderboards ||--o{ point_logs
+users ||--o{ point_logs
+
+@enduml

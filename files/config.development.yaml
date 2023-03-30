@@ -1,0 +1,17 @@
+app:
+  name: Leaderboard
+  port: 8000
+  env: development
+
+database:
+  driver: mysql
+  name: leaderboard_engine
+  port: 3306
+  host: 127.0.0.1
+  username: root
+  password: root
+
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: ""
